@@ -1,0 +1,31 @@
+{
+  "extends": "airbnb",
+  "plugins": ["import", "jsx-a11y", "react"],
+  "rules": {
+    "linebreak-style": ["error", "windows"],
+    "semi": ["warn", "never"],
+    "comma-dangle": [
+      "warn",
+      {
+        "imports": "only-multiline",
+        "arrays": "only-multiline",
+        "objects": "only-multiline"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/export": "off",
+    "import/named": "error",
+    "no-unused-vars": "warn",
+    "react/no-unused-prop-types": "warn",
+    "react/no-unused-state": "warn",
+    "react/prop-types": "warn",
+    "jsx-a11y/anchor-is-valid": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}
