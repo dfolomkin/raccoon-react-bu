@@ -1,12 +1,13 @@
 import React from 'react'
-import { Switch, Route, Redirect, Link } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { Header, ArticlesList, ArticleForm, Aside } from 'components'
-import { urls } from 'utils'
+import { urls } from 'commons/constants'
 
 import './app.less'
 
-export class App extends React.PureComponent {
+export class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -17,19 +18,20 @@ export class App extends React.PureComponent {
       <div className="container">
         <Header />
         <div className="main">
+          sdjfhskdfjsdjkf
           <Switch>
-            <Redirect exact from="/" to={urls.articlesList} />
+            {/* <Redirect exact from="/" to={urls.articlesList} /> */}
+            <Route exact path="/" render={() => <ArticlesList />} />
             <Route path={urls.articlesList} render={() => <ArticlesList />} />
             <Route
               path={`${urls.articleForm}/:id`}
               render={() => <ArticleForm />}
             />
-            <Redirect to={urls.articlesList} />
+            {/* <Redirect to={urls.articlesList} /> */}
           </Switch>
           <Aside />
           <Link to="/">sfsldkjflksdfl;ksdmf</Link>
           <Link to="/article/10">sfsldkjflksdfl;ksdmf</Link>
-          {this.props.children}
         </div>
       </div>
     )

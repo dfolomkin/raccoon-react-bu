@@ -5,13 +5,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
-    vendor: ['react', 'react-dom'],
+    react: ['react', 'react-dom', 'react-router', 'react-router-dom'],
     app: './src/index.jsx',
   },
 
   output: {
     path: path.join(__dirname, 'dist/js'),
-    filename: '[name]-bundle.js',
+    filename: '[name].bundle.js',
   },
 
   module: {
@@ -53,7 +53,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Raccoon Blog | React',
-      // only filename for webpack-dev-server, and filename w/ relative path for build
       filename: 'index.html',
       template: 'src/index.tmpl.html',
       hash: true,
@@ -63,15 +62,11 @@ module.exports = {
     }),
     new CopyWebpackPlugin(
       [
-        { from: 'src/img', to: '../img' },
-        { from: 'src/css/reset.css', to: '../css' },
+        { from: 'src/assets/images', to: '../img' },
+        { from: 'src/assets/styles/reset.css', to: '../css' },
       ],
       { copyUnmodified: true }
     ),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
@@ -79,13 +74,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.less'],
     alias: {
-      css: path.resolve(__dirname, 'src/css'),
-      fonts: path.resolve(__dirname, 'src/fonts'),
-      img: path.resolve(__dirname, 'src/img'),
-      utils: path.resolve(__dirname, 'src/app/common/utils'),
-      common: path.resolve(__dirname, 'src/app/common'),
+      styles: path.resolve(__dirname, 'src/assets/styles'),
+      fonts: path.resolve(__dirname, 'src/assets/fonts'),
+      images: path.resolve(__dirname, 'src/assets/images'),
+      commons: path.resolve(__dirname, 'src/app/commons'),
       components: path.resolve(__dirname, 'src/app/components'),
-      vendors: path.resolve(__dirname, 'vendors'),
     },
   },
 

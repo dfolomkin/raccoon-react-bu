@@ -1,11 +1,5 @@
-*.log
-
 node_modules/
-
 dist/
-index.html
+# server/uploads/
+# server/db.json
 
-uploads/
-db.json
-
-coverage/

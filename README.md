@@ -2,18 +2,17 @@
 
 ### Dependencies
 
-Print `npm install` to install dependencies.
+Print `npm i` to install all dependencies.
 
 ### Scripts
 
-Print `npm run build:dev` to build project once in dev mode (with source maps and extracted css).
+Print `npm run server` to run json-server.
 
-Print `npm run watch` to continuously watch to changes in dev mode.
+Print `npm start` to run webpack-dev-server.
 
-Print `npm run build:prod` to build project once to production (without source maps and extracted css but with obfuscation).
+Print `npm run build` to build the project once.
 
-Print `npm run build:clr` before distinct build modes to clear build directory.
-
+Print `npm run watch` to continuously watch to changes and rebuild the project.
 
 ### Creator
 
