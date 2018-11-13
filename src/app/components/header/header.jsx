@@ -19,11 +19,11 @@ export const Header = () => {
   return (
     <div>
       <div className="logo">
-        racco
+        <span>racco</span>
         <svg className="logo__icon">
-          <use xlinkHref="dist/img/sprite.svg#icon-racoon-negative" />
+          <use xlinkHref="dist/images/sprite.svg#icon-racoon-negative" />
         </svg>
-        nblog
+        <span>nblog</span>
       </div>
 
       <nav className="navbar">

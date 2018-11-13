@@ -1,17 +1,22 @@
+/* eslint-disable */
+
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
+  mode: 'development',
+
   entry: {
     react: ['react', 'react-dom', 'react-router', 'react-router-dom'],
     app: './src/index.jsx',
   },
 
   output: {
-    path: path.join(__dirname, 'dist/js'),
-    filename: '[name].bundle.js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'js/[name].bundle.js',
   },
 
   module: {
@@ -23,7 +28,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['env', 'react'],
+              presets: ['env', 'stage-2', 'react'],
             },
           },
           {
@@ -32,9 +37,28 @@ module.exports = {
         ],
       },
       {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../css/',
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+      {
         test: /\.less$/,
         use: [
           { loader: 'style-loader' },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../css/',
+            },
+          },
           { loader: 'css-loader' },
           { loader: 'less-loader' },
         ],
@@ -67,8 +91,10 @@ module.exports = {
       ],
       { copyUnmodified: true }
     ),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+    }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
   ],
 
   resolve: {
@@ -85,7 +111,7 @@ module.exports = {
   devtool: 'source-map',
 
   devServer: {
-    contentBase: './',
+    contentBase: './dist',
     compress: true,
     port: 9000,
     hot: true,

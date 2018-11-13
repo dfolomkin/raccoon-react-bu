@@ -18,7 +18,6 @@ export class App extends React.Component {
       <div className="container">
         <Header />
         <div className="main">
-          sdjfhskdfjsdjkf
           <Switch>
             {/* <Redirect exact from="/" to={urls.articlesList} /> */}
             <Route exact path="/" render={() => <ArticlesList />} />
