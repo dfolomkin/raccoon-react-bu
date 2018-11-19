@@ -21,7 +21,7 @@ export const Header = () => {
       <div className="logo">
         <span>racco</span>
         <svg className="logo__icon">
-          <use xlinkHref="dist/images/sprite.svg#icon-racoon-negative" />
+          <use xlinkHref={`${IMG_PATH}/sprite.svg#icon-racoon-negative`} />
         </svg>
         <span>nblog</span>
       </div>

@@ -5,9 +5,9 @@
   "main": "server/server.js",
   "scripts": {
     "server": "nodemon server/server.js",
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "start": "webpack-dev-server --env.devserver",
+    "build": "webpack --env.dev",
+    "watch": "webpack --watch --env.dev"
   },
   "dependencies": {
     "classnames": "^2.2.6",

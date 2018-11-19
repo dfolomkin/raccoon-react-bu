@@ -6,7 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+const defaultEnv = { devserver: true }
+
+module.exports = (env = defaultEnv) => ({
   mode: 'development',
 
   entry: {
@@ -86,8 +88,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin(
       [
-        { from: 'src/assets/images', to: '../img' },
-        { from: 'src/assets/styles/reset.css', to: '../css' },
+        { from: 'src/assets/images/', to: 'img/' },
+        // зачем ???
+        // { from: 'src/assets/styles/reset.css', to: 'css/' },
       ],
       { copyUnmodified: true }
     ),
@@ -95,6 +98,11 @@ module.exports = {
       filename: 'css/[name].css',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      IMG_PATH: env.devserver
+        ? JSON.stringify('../src/assets/images')
+        : JSON.stringify('img'),
+    }),
   ],
 
   resolve: {
@@ -117,4 +125,4 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
-}
+})
