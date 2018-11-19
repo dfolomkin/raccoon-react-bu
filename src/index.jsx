@@ -5,7 +5,7 @@ import browserHistory from 'react-router'
 
 import { App } from './app/app'
 
-import './assets/styles/reset.css'
+import './assets/font-awesome/css/font-awesome.css'
 
 ReactDOM.render(
   <Router history={browserHistory}>

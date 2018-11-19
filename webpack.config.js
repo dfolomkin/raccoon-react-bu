@@ -4,9 +4,10 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const defaultEnv = { devserver: true }
+const defaultEnv = { dev: true }
 
 module.exports = (env = defaultEnv) => ({
   mode: 'development',
@@ -14,7 +15,7 @@ module.exports = (env = defaultEnv) => ({
   entry: {
     react: ['react', 'react-dom', 'react-router', 'react-router-dom'],
     app: './src/index.jsx',
-    reset: './src/assets/styles/reset.css',
+    'font-awesome': './src/assets/font-awesome/css/font-awesome.css',
   },
 
   output: {
@@ -84,25 +85,27 @@ module.exports = (env = defaultEnv) => ({
       template: 'src/index.tmpl.html',
       hash: true,
       minify: {
-        collapseWhitespace: true,
+        collapseWhitespace: !env.dev,
       },
     }),
     new CopyWebpackPlugin(
       [
-        { from: 'src/assets/images/', to: 'img/' },
-        // зачем ???
-        // { from: 'src/assets/styles/reset.css', to: 'css/' },
+        { from: 'src/assets/images/', to: './img/' },
+        { from: 'src/assets/styles/reset.css', to: './css/' },
       ],
       { copyUnmodified: true }
     ),
+    new HtmlWebpackIncludeAssetsPlugin({
+      assets: ['css/reset.css'],
+      append: false,
+      hash: true,
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      IMG_PATH: env.devserver
-        ? JSON.stringify('../src/assets/images')
-        : JSON.stringify('img'),
+      IMG_PATH: env.dev ? JSON.stringify('img') : JSON.stringify(''),
     }),
   ],
 
