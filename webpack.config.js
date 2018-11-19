@@ -14,6 +14,7 @@ module.exports = (env = defaultEnv) => ({
   entry: {
     react: ['react', 'react-dom', 'react-router', 'react-router-dom'],
     app: './src/index.jsx',
+    reset: './src/assets/styles/reset.css',
   },
 
   output: {
