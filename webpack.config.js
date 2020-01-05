@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -13,9 +11,7 @@ module.exports = (env = defaultEnv) => ({
   mode: 'development',
 
   entry: {
-    react: ['react', 'react-dom', 'react-router', 'react-router-dom'],
-    app: './src/index.jsx',
-    'font-awesome': './src/assets/font-awesome/css/font-awesome.css',
+    app: './src/index.tsx',
   },
 
   output: {
@@ -23,22 +19,24 @@ module.exports = (env = defaultEnv) => ({
     filename: 'js/[name].bundle.js',
   },
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
+
   module: {
     rules: [
       {
-        test: /\.jsx$/,
-        exclude: path.join(__dirname, 'node_modules'),
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['env', 'stage-2', 'react'],
-            },
-          },
-          {
-            loader: 'eslint-loader',
-          },
-        ],
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: ['ts-loader', 'eslint-loader'],
       },
       {
         test: /\.css$/,
@@ -110,7 +108,7 @@ module.exports = (env = defaultEnv) => ({
   ],
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.less'],
+    extensions: ['.js', '.ts', '.tsx'],
     alias: {
       styles: path.resolve(__dirname, 'src/assets/styles'),
       fonts: path.resolve(__dirname, 'src/assets/fonts'),
