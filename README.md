@@ -4,15 +4,19 @@
 
 Print `npm i` to install all dependencies.
 
-### Scripts
+### Server Scripts
 
-Print `npm run server` to run json-server.
+`npm start` to run json-server.
 
-Print `npm start` to run webpack-dev-server.
+### Client Scripts
 
-Print `npm run build` to build the project once.
+`npm start` to run webpack-dev-server.
 
-Print `npm run watch` to continuously watch to changes and rebuild the project.
+`npm run build` to build the project once.
+
+`npm run watch` to continuously watch changes and rebuild the project.
+
+`npm run eslint` to check code with ESList.
 
 ### Creator
 

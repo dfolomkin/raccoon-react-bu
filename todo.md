@@ -1,6 +1,5 @@
-1. react
-2. redux, redux-thunk
-3. typescript
+1. react + styled components
+2. typescript
+3. redux, redux-thunk
 4. tests
-
-как собираются less?
+5. color scheme with context

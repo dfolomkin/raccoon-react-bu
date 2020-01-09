@@ -29,9 +29,10 @@
         },
         "singleline": {
           "delimiter": "semi",
-          "requireLast": true
+          "requireLast": false
         }
       }
-    ]
+    ],
+    "import/no-unresolved": 1
   }
 }

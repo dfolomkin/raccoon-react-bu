@@ -110,11 +110,11 @@ module.exports = (env = defaultEnv) => ({
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
     alias: {
-      styles: path.resolve(__dirname, 'src/assets/styles'),
-      fonts: path.resolve(__dirname, 'src/assets/fonts'),
-      images: path.resolve(__dirname, 'src/assets/images'),
       commons: path.resolve(__dirname, 'src/app/commons'),
       components: path.resolve(__dirname, 'src/app/components'),
+      images: path.resolve(__dirname, 'src/assets/images'),
+      fonts: path.resolve(__dirname, 'src/assets/fonts'),
+      styles: path.resolve(__dirname, 'src/assets/styles'),
     },
   },
 

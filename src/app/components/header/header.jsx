@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-import { MenuButton } from './menu-button'
+import { MenuButton } from './navButton'
 
 import './header.less'
 
@@ -13,7 +13,7 @@ export const Header = () => {
     { label: 'css', href: '/' },
     { label: 'latest', href: '/articles-list' },
     { label: 'html', href: '/article/10' },
-    { label: 'design', href: '/' },
+    { label: 'design', href: '/' }
   ]
 
   return [
@@ -53,7 +53,7 @@ export const Header = () => {
           <use xlinkHref="dist/img/sprite.svg#icon-menu" />
         </svg>
       </MenuButton>
-    </nav>,
+    </nav>
   ]
 }
 
