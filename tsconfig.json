@@ -4,14 +4,16 @@
     "outDir": "dist/",
     "sourceMap": true,
     "paths": {
-      "commons/*": ["src/app/commons/*"],
-      "commons": ["src/app/commons"],
-      "components": ["src/app/components"]
+      "@commons/*": ["src/commons/*"],
+      "@commons": ["src/commons"],
+      "@containers": ["src/containers"],
+      "@components": ["src/components"]
     },
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es6",
-    "jsx": "react"
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

@@ -1,11 +1,11 @@
-const jsonServer = require('json-server')
-const multer = require('multer')
+const jsonServer = require('json-server');
+const multer = require('multer');
 
-const server = jsonServer.create()
-const middlewares = jsonServer.defaults()
+const server = jsonServer.create();
+const middlewares = jsonServer.defaults();
 
-server.use(middlewares)
-server.use(jsonServer.bodyParser)
+server.use(middlewares);
+server.use(jsonServer.bodyParser);
 
 // const store = multer.diskStorage({
 //   destination: (req, file, cb) => {
@@ -22,12 +22,12 @@ server.use(jsonServer.bodyParser)
 //   res.status(200)
 // })
 
-const router = jsonServer.router('./db.json')
+const router = jsonServer.router('./db.json');
 
-server.use('/api', router)
+server.use('/api', router);
 
-const port = 3000
+const port = 3000;
 
 server.listen(port, () => {
-  console.log('JSON Server is running on port', port)
-})
+  console.log('JSON Server is running on port', port);
+});

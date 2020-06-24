@@ -1,11 +1,11 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const defaultEnv = { dev: true }
+const defaultEnv = { dev: true };
 
 module.exports = (env = defaultEnv) => ({
   mode: 'development',
@@ -127,4 +127,4 @@ module.exports = (env = defaultEnv) => ({
     hot: true,
     historyApiFallback: true,
   },
-})
+});

@@ -1,5 +1,15 @@
-1. react + styled components
-2. typescript
-3. redux, redux-thunk
-4. tests
-5. color scheme with context
+### Roadmap
+
+1. Class + Styled components + TS
+
+2. Tests
+
+3. Color scheme with context
+
+4. Redux
+
+5. Hooks + Tests
+
+6. SSR
+
+7. Gatsby - separate brench

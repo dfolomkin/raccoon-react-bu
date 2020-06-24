@@ -1,15 +1,15 @@
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from 'react';
+import styled from 'styled-components';
 
-import { COLORS } from 'commons/constants'
+import { COLORS } from 'src/commons/constants';
 
 interface ChildrenProp {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const NavButtonInnerComponent = ({ children }: ChildrenProp): JSX.Element => (
   <div>{children}</div>
-)
+);
 
 const NavButtonInner = styled(NavButtonInnerComponent)`
   position: relative;
@@ -29,17 +29,17 @@ const NavButtonInner = styled(NavButtonInnerComponent)`
     font-size: 2.2rem;
     padding-top: 0.6rem;
   }
-`
+`;
 
 const NavButtonComponent = ({ children }: ChildrenProp): JSX.Element => (
   <div>
     <NavButtonInner>{children}</NavButtonInner>
   </div>
-)
+);
 
-export const NavButton = styled(NavButtonComponent)({})
+export const NavButton = styled(NavButtonComponent)({});
 
-export const NavDropdownButton = styled(NavButton)({})
+export const NavDropdownButton = styled(NavButton)({});
 
 // export const MenuButton = ({ children, isMenu }) => {
 //   const wrapperClass = isMenu
