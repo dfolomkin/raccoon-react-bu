@@ -1,15 +1,21 @@
 ### Roadmap
 
-1. Class + Styled components + TS
+1. webpack with less
 
-2. Tests
+2. class js
 
-3. Color scheme with context
+3. ts
 
-4. Redux
+4. hooks
 
-5. Hooks + Tests
+5. styled components
 
-6. SSR
+6. tests
 
-7. Gatsby - separate brench
+7. context
+
+8. redux
+
+9. ssr
+
+10. gatsby
